@@ -11,7 +11,7 @@
         //NOTE: your audio context needs to be stored in a variable called ctx
         const ctx = new AudioContext();
 
-        let freq = 220;
+        let freq = 110;
     
         let osc = new OscillatorNode(ctx);
         osc.frequency.value = freq;
@@ -21,7 +21,8 @@
 
         myGain.connect(ctx.destination);
         osc.connect(myGain);
-        
+        osc.start();
+
         //Do not edit the code below here
         document.querySelector("button").onclick = () => ctx.resume();
     </script>
