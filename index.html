@@ -9,8 +9,19 @@
     <script>
         //Complete Lab 1 here:
         //NOTE: your audio context needs to be stored in a variable called ctx
+        const ctx = new AudioContext();
 
+        let freq = 220;
+    
+        let osc = new OscillatorNode(ctx);
+        osc.frequency.value = freq;
 
+        let myGain = new GainNode(ctx);
+        myGain.gain.value = 0.125;
+
+        myGain.connect(ctx.destination);
+        osc.connect(myGain);
+        
         //Do not edit the code below here
         document.querySelector("button").onclick = () => ctx.resume();
     </script>
